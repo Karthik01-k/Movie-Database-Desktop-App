@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.moviedb.controller.MovieDetailController"
+            styleClass="bg-base">
+
+    <top>
+        <HBox styleClass="toolbar" alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="12" bottom="12" left="16" right="16"/></padding>
+            <Button text="← Back" onAction="#onBack"/>
+            <Label fx:id="movieTitleLabel" styleClass="title-3"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="edge-to-edge">
+            <VBox spacing="24">
+                <padding><Insets top="24" bottom="40" left="32" right="32"/></padding>
+
+                <!-- Hero row -->
+                <HBox spacing="32" alignment="TOP_LEFT">
+                    <ImageView fx:id="posterView" fitWidth="220" fitHeight="330" preserveRatio="true"/>
+
+                    <VBox spacing="12" HBox.hgrow="ALWAYS">
+                        <Label fx:id="titleLabel"    styleClass="title-1"/>
+                        <Label fx:id="metaLabel"     styleClass="text-subtle"/>
+                        <Label fx:id="genreLabel"    styleClass="text-subtle"/>
+                        <Label fx:id="ratingLabel"   styleClass="title-3"/>
+                        <Label fx:id="overviewLabel" wrapText="true"/>
+
+                        <HBox spacing="12" style="-fx-padding: 8 0 0 0;">
+                            <Button fx:id="favoriteBtn"  text="♡  Favorite"       onAction="#onToggleFavorite"/>
+                            <Button fx:id="watchlistBtn" text="+ Watchlist"        onAction="#onAddWatchlist"/>
+                            <Button fx:id="trailerBtn"   text="▶  Watch Trailer"   styleClass="button-filled" onAction="#onTrailer"/>
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+                <!-- Cast -->
+                <VBox spacing="8">
+                    <Label text="Cast" styleClass="title-3"/>
+                    <ScrollPane fitToHeight="true" prefHeight="160" styleClass="edge-to-edge">
+                        <HBox fx:id="castBox" spacing="12"/>
+                    </ScrollPane>
+                </VBox>
+
+                <Separator/>
+
+                <!-- Reviews -->
+                <VBox spacing="12">
+                    <Label text="Reviews" styleClass="title-3"/>
+
+                    <!-- Write review -->
+                    <VBox fx:id="reviewForm" spacing="8" styleClass="card">
+                        <padding><Insets topRightBottomLeft="16"/></padding>
+                        <Label text="Your Review"/>
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <Label text="Rating (1-10):"/>
+                            <Spinner fx:id="ratingSpinner" min="1" max="10" initialValue="7" prefWidth="70"/>
+                        </HBox>
+                        <TextArea fx:id="reviewTextArea" promptText="Write your thoughts…" prefRowCount="3" wrapText="true"/>
+                        <Button text="Submit Review" styleClass="button-filled" onAction="#onSubmitReview"/>
+                    </VBox>
+
+                    <VBox fx:id="reviewsBox" spacing="8"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

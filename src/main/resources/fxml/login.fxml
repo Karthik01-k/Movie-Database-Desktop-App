@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.moviedb.controller.LoginController"
+           styleClass="bg-base">
+
+    <VBox alignment="CENTER" spacing="24" maxWidth="400">
+        <padding><Insets top="60" bottom="60" left="40" right="40"/></padding>
+
+        <Label text="🎬 MovieExplorer" styleClass="title-1"/>
+        <Label text="Sign in to your account" styleClass="text-subtle"/>
+
+        <VBox spacing="8">
+            <Label text="Username"/>
+            <TextField fx:id="usernameField" promptText="Enter username"/>
+        </VBox>
+
+        <VBox spacing="8">
+            <Label text="Password"/>
+            <PasswordField fx:id="passwordField" promptText="Enter password"/>
+        </VBox>
+
+        <Label fx:id="errorLabel" styleClass="danger" wrapText="true" visible="false" managed="false"/>
+
+        <Button fx:id="loginBtn" text="Sign In" styleClass="button-filled"
+                maxWidth="Infinity" onAction="#onLogin"/>
+
+        <HBox alignment="CENTER" spacing="6">
+            <Label text="Don't have an account?"/>
+            <Hyperlink text="Register" onAction="#onGoRegister"/>
+        </HBox>
+    </VBox>
+</StackPane>

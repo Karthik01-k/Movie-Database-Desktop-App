@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.moviedb.controller.ProfileController"
+            styleClass="bg-base">
+
+    <top>
+        <HBox styleClass="toolbar" alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="12" bottom="12" left="16" right="16"/></padding>
+            <Button text="← Back" onAction="#onBack"/>
+            <Label text="My Profile" styleClass="title-3"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="24">
+            <padding><Insets top="24" bottom="40" left="32" right="32"/></padding>
+
+            <!-- User info card -->
+            <HBox spacing="20" alignment="CENTER_LEFT" styleClass="card">
+                <padding><Insets topRightBottomLeft="20"/></padding>
+                <VBox spacing="4">
+                    <Label fx:id="usernameLabel" styleClass="title-2"/>
+                    <Label fx:id="emailLabel"    styleClass="text-subtle"/>
+                    <Label fx:id="roleLabel"     styleClass="text-subtle"/>
+                </VBox>
+            </HBox>
+
+            <!-- Tabs -->
+            <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+
+                <Tab text="Watchlist">
+                    <ScrollPane fitToWidth="true" styleClass="edge-to-edge">
+                        <VBox fx:id="watchlistBox" spacing="8">
+                            <padding><Insets topRightBottomLeft="16"/></padding>
+                        </VBox>
+                    </ScrollPane>
+                </Tab>
+
+                <Tab text="My Reviews">
+                    <ScrollPane fitToWidth="true" styleClass="edge-to-edge">
+                        <VBox fx:id="reviewsBox" spacing="8">
+                            <padding><Insets topRightBottomLeft="16"/></padding>
+                        </VBox>
+                    </ScrollPane>
+                </Tab>
+
+            </TabPane>
+        </VBox>
+    </center>
+</BorderPane>

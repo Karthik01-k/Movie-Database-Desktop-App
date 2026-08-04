@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.moviedb.controller.HomeController"
+            styleClass="bg-base">
+
+    <!-- ── Sidebar ── -->
+    <left>
+        <VBox styleClass="sidebar" spacing="4" prefWidth="200">
+            <padding><Insets top="24" bottom="24" left="12" right="12"/></padding>
+
+            <Label text="🎬 MovieExplorer" styleClass="title-4" style="-fx-padding: 0 0 16 8;"/>
+
+            <Button fx:id="btnTrending"   text="🔥  Trending"    maxWidth="Infinity" styleClass="sidebar-btn" onAction="#onTrending"/>
+            <Button fx:id="btnNowPlaying" text="🎭  Now Playing"  maxWidth="Infinity" styleClass="sidebar-btn" onAction="#onNowPlaying"/>
+            <Button fx:id="btnTopRated"   text="⭐  Top Rated"   maxWidth="Infinity" styleClass="sidebar-btn" onAction="#onTopRated"/>
+            <Button fx:id="btnUpcoming"   text="📅  Upcoming"    maxWidth="Infinity" styleClass="sidebar-btn" onAction="#onUpcoming"/>
+
+            <Separator style="-fx-padding: 8 0;"/>
+
+            <Button text="📋  Watchlist"  maxWidth="Infinity" styleClass="sidebar-btn" onAction="#onWatchlist"/>
+            <Button text="👤  Profile"    maxWidth="Infinity" styleClass="sidebar-btn" onAction="#onProfile"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button fx:id="adminBtn" text="🛡  Admin"  maxWidth="Infinity" styleClass="sidebar-btn" visible="false" managed="false" onAction="#onAdmin"/>
+            <Button text="🚪  Sign Out" maxWidth="Infinity" styleClass="sidebar-btn" onAction="#onLogout"/>
+        </VBox>
+    </left>
+
+    <!-- ── Main content ── -->
+    <center>
+        <VBox spacing="16">
+            <padding><Insets top="24" bottom="24" left="24" right="24"/></padding>
+
+            <!-- Search bar -->
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="Search movies…" HBox.hgrow="ALWAYS"
+                           onAction="#onSearch"/>
+                <Button text="Search" styleClass="button-filled" onAction="#onSearch"/>
+            </HBox>
+
+            <!-- Section title -->
+            <Label fx:id="sectionTitle" text="Trending This Week" styleClass="title-2"/>
+
+            <!-- Movie grid -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="edge-to-edge">
+                <FlowPane fx:id="movieGrid" hgap="16" vgap="16" prefWrapLength="900"/>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

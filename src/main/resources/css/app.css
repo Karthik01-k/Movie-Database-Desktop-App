@@ -1,0 +1,66 @@
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+
+.sidebar {
+    -fx-background-color: -color-bg-subtle;
+    -fx-border-color: -color-border-default;
+    -fx-border-width: 0 1 0 0;
+}
+
+.toolbar {
+    -fx-background-color: -color-bg-subtle;
+    -fx-border-color: -color-border-default;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* ── Sidebar buttons ────────────────────────────────────────────────────── */
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 8 12;
+    -fx-cursor: hand;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: -color-bg-default;
+}
+
+/* ── Movie card ─────────────────────────────────────────────────────────── */
+
+.movie-card {
+    -fx-background-color: -color-bg-subtle;
+    -fx-background-radius: 8;
+    -fx-padding: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 6, 0, 0, 2);
+}
+
+.movie-card:hover {
+    -fx-background-color: -color-bg-default;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 10, 0, 0, 4);
+}
+
+/* ── Cast card ──────────────────────────────────────────────────────────── */
+
+.cast-card {
+    -fx-background-color: -color-bg-subtle;
+    -fx-background-radius: 6;
+    -fx-padding: 6;
+}
+
+/* ── Generic card ───────────────────────────────────────────────────────── */
+
+.card {
+    -fx-background-color: -color-bg-subtle;
+    -fx-background-radius: 8;
+    -fx-border-color: -color-border-default;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+/* ── Typography helpers ─────────────────────────────────────────────────── */
+
+.text-subtle  { -fx-text-fill: -color-fg-muted; }
+.text-small   { -fx-font-size: 12px; }
+.text-bold    { -fx-font-weight: bold; }
+.danger       { -fx-text-fill: -color-danger-fg; }
